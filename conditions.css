@@ -1,0 +1,125 @@
+/* Styles spécifiques pour la page des conditions d'utilisation */
+
+:root {
+    --primary-color: #002652;
+    --text-light: #ffffff;
+}
+
+/* Header fixe */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Container nav */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 64px;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+/* Styles spécifiques pour la page des conditions d'utilisation */
+
+/* Bandeau de contenu */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Styles spécifiques pour la page des conditions d'utilisation */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+#conditions {
+    width: 100%;
+    padding: 0;
+}
+
+#conditions h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+#conditions h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+#conditions h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#conditions ol {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+#conditions li {
+    margin-bottom: 0.8rem;
+}
+
+#conditions p {
+    margin-bottom: 1rem;
+}
+
+/* Désactiver toutes les animations et transitions */
+#conditions,
+#conditions * {
+    animation: none !important;
+    transition: none !important;
+    -webkit-animation: none !important;
+    -webkit-transition: none !important;
+    -moz-animation: none !important;
+    -moz-transition: none !important;
+    -o-animation: none !important;
+    -o-transition: none !important;
+}
+
+/* Désactiver les animations spécifiques pour les titres */
+#conditions h1,
+#conditions h2,
+#conditions h3 {
+    animation: none !important;
+    transition: none !important;
+    -webkit-animation: none !important;
+    -webkit-transition: none !important;
+    -moz-animation: none !important;
+    -moz-transition: none !important;
+    -o-animation: none !important;
+    -o-transition: none !important;
+}
+
+/* Désactiver les animations pour les liens */
+#conditions a {
+    animation: none !important;
+    transition: none !important;
+    -webkit-animation: none !important;
+    -webkit-transition: none !important;
+    -moz-animation: none !important;
+    -moz-transition: none !important;
+    -o-animation: none !important;
+    -o-transition: none !important;
+}

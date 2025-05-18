@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz et Jeux - Défense Nationale</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .interactive-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .quiz-section {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff3333;
+            color: white;
+        }
+
+        .quiz-score {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .interactive-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interactive-element {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .interactive-element h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .interactive-element img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .interactive-element p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="interactive-container">
+        <h2>Quiz et Jeux Interactifs</h2>
+        
+        <div class="quiz-section">
+            <h3>Quiz : Les Forces Armées</h3>
+            <div id="quiz-container">
+                <!-- Le quiz sera injecté ici -->
+            </div>
+            <div class="quiz-score" id="score-display"></div>
+        </div>
+
+        <div class="interactive-elements">
+            <div class="interactive-element">
+                <h3>Organigramme</h3>
+                <img src="../img/organigramme.png" alt="Organigramme des Forces Armées">
+                <p>Organisation hiérarchique des forces armées françaises</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>Infographie</h3>
+                <img src="../img/infographie.png" alt="Infographie des effectifs">
+                <p>Évolution des effectifs militaires</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>Carte Interactive</h3>
+                <img src="../img/carte.png" alt="Carte des bases militaires">
+                <p>Localisation des bases militaires françaises</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz
+        const quizQuestions = [
+            {
+                question: "Quelle est la couleur du képi du général de brigade ?",
+                options: ["Bleu", "Rouge", "Vert", "Noir"],
+                correctAnswer: 1
+            },
+            {
+                question: "Quel est le plus haut grade de l'armée française ?",
+                options: ["Maréchal", "Amiral", "Général", "Colonel"],
+                correctAnswer: 0
+            },
+            {
+                question: "Combien de branches composent les forces armées françaises ?",
+                options: ["2", "3", "4", "5"],
+                correctAnswer: 3
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function displayQuestion() {
+            const question = quizQuestions[currentQuestion];
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = `
+                <div class="quiz-question">${question.question}</div>
+                <div class="quiz-options">
+                    ${question.options.map((option, index) => 
+                        `<div class="quiz-option" data-index="${index}">${option}</div>`
+                    ).join('')}
+                </div>
+            `;
+
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', () => checkAnswer(option));
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const question = quizQuestions[currentQuestion];
+            const selected = parseInt(selectedOption.dataset.index);
+            
+            if (selected === question.correctAnswer) {
+                selectedOption.classList.add('correct');
+                score++;
+            } else {
+                selectedOption.classList.add('incorrect');
+            }
+
+            currentQuestion++;
+            
+            if (currentQuestion < quizQuestions.length) {
+                setTimeout(displayQuestion, 1000);
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = `
+                <h3>Quiz Terminé</h3>
+                <p>Votre score : ${score}/${quizQuestions.length}</p>
+                <button onclick="location.reload()">Recommencer</button>
+            `;
+            document.getElementById('score-display').textContent = `Score final : ${score}/${quizQuestions.length}`;
+        }
+
+        // Initialisation
+        displayQuestion();
+    </script>
+</body>
+</html>
