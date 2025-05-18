@@ -1,0 +1,331 @@
+/* Réinitialisation et variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #002652;
+    /* Bleu foncé du drapeau */
+    --secondary-color: #00529b;
+    /* Bleu clair du drapeau */
+    --accent-color: #D52B1E;
+    /* Rouge du drapeau */
+    --text-color: #000000;
+    --text-light: #ffffff;
+    --background-color: #ffffff;
+    --section-padding: 2rem;
+    --article-padding: 1.5rem;
+}
+
+/* Body et main */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 2rem 2rem;
+}
+
+/* Sections */
+section {
+    background: rgb(254, 254, 255);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: var(--section-padding);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Articles */
+article {
+    margin-bottom: 1.5rem;
+    padding: var(--article-padding);
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
+}
+
+article h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--text-light);
+    padding-bottom: 0.5rem;
+}
+
+/* Styles spécifiques pour la première section */
+article.citoyens-defense {
+    position: relative;
+    padding-top: 2.5rem;
+}
+
+article.citoyens-defense p {
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+article.citoyens-defense>p>strong {
+    font-weight: bold;
+}
+
+/* Styles pour les listes à puces */
+article.citoyens-defense>p>ul {
+    margin-left: 1.5rem;
+    list-style-position: inside;
+    margin-top: 0.5rem;
+}
+
+article.citoyens-defense>p>ul>li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Styles pour les listes ordonnées */
+ol li {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+ol li::marker {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Styles pour les listes à puces (ul) */
+ul li {
+    margin-bottom: 0.5rem;
+    color: inherit;
+    font-weight: normal;
+}
+
+ul li::marker {
+    color: var(--primary-color);
+}
+
+article.citoyens-defense>p>ul>li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Styles pour les paragraphes imbriqués */
+article.citoyens-defense>p>p {
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* Styles pour la classe institutions */
+article.institutions {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+article.institutions * {
+    text-align: inherit;
+}
+
+article.institutions p {
+    margin-bottom: 1rem;
+    hyphens: auto;
+    word-wrap: break-word;
+}
+
+article.institutions ul li {
+    margin-bottom: 0.5rem;
+    hyphens: auto;
+    word-wrap: break-word;
+}
+
+/* Styles spécifiques pour les listes imbriquées */
+article.institutions ul ul li {
+    margin-left: 1.5rem;
+}
+
+/* Listes */
+ul {
+    margin-left: 1.5rem;
+    list-style-position: inside;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Texte */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Hero section */
+/* Ajoute ceci dans styles.css */
+#hero {
+    height: 750px;
+    background-image: url('https://images.pexels.com/photos/1927974/pexels-photo-1927974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;                /* Ajoute ceci */
+    flex-direction: column;       /* Centre verticalement */
+    justify-content: center;      /* Centre sur l'axe vertical */
+    align-items: center;          /* Centre sur l'axe horizontal */
+    text-align: center;
+    padding: 3rem;
+    margin-bottom: 6rem;
+}
+
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main {
+        padding: 64px 1rem 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    article {
+        padding: 1rem;
+    }
+
+    #hero {
+        padding: 3rem 1rem;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Header fixe */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Container nav */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 64px;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+/* Barre de navigation */
+.navbar {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar>li>a {
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-size: 1rem;
+}
+
+.navbar>li>a:hover,
+.navbar>li.dropdown:hover>a {
+    background: var(--primary-color);
+    color: #D52B1E;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--secondary-color);
+    min-width: 220px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 1001;
+    padding: 0.5rem 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dropdown-content li {
+    margin: 0.25rem 0;
+    padding: 0;
+}
+
+.dropdown-content li a {
+    color: #ffffff;
+    background: var(--dropdown-bg);
+    padding: 0.75rem 1.25rem;
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+
+.dropdown-content li a:hover {
+    background: var(--dropdown-hover);
+    color: #f10808;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Décalage du contenu pour le header fixe */
+main {
+    margin-top: 80px;
+}
+
+
